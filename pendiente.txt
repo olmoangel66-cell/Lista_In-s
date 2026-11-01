@@ -1,0 +1,5 @@
+no se encuentras productos porque he activa rls en tabla productos
+
+
+
+

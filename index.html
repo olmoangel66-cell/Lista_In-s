@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#247a58">
+
+  <title>La compra de casa</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app" id="app" hidden>
+    <header class="header">
+      <div>
+        <p class="eyebrow">NUESTRA CASA</p>
+        <h1>La compra 🛒</h1>
+        <p class="subtitle">Nuestra lista compartida</p>
+      </div>
+    </header>
+
+<section class="catalog-section">
+
+  <h2>Buscar productos</h2>
+
+  <label class="sr-only" for="product-search">
+    Buscar en el catálogo
+  </label>
+
+  <input
+    id="product-search"
+    type="search"
+    placeholder="Escribe un producto..."
+    autocomplete="off"
+  >
+
+  <div class="table-wrapper">
+    <table class="catalog-table">
+
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Categoría</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+
+      <tbody id="catalog-results"></tbody>
+
+    </table>
+  </div>
+
+  <p id="catalog-message" class="empty-message">
+    Escribe para buscar productos.
+  </p>
+
+  <button id="show-add-product" type="button">
+    + Crear producto nuevo
+  </button>
+
+  <form id="new-product-form" hidden>
+
+    <label for="new-product-name">
+      Nombre del producto
+    </label>
+
+    <input
+      id="new-product-name"
+      type="text"
+      maxlength="100"
+      required
+    >
+
+    <label for="new-product-category">
+      Categoría
+    </label>
+
+    <input
+      id="new-product-category"
+      type="text"
+      maxlength="60"
+      placeholder="Ej. Fruta"
+    >
+
+    <button type="submit">Guardar producto</button>
+
+  </form>
+
+</section>
+
+    <section class="list-section">
+      <div class="list-heading">
+        <h2>Productos</h2>
+        <span id="pending-count" class="counter">0 pendientes</span>
+      </div>
+
+      <nav class="filters" aria-label="Filtrar productos">
+        <button type="button" data-filter="all"
+          class="filter active" aria-pressed="true">
+          Todos
+        </button>
+        <button type="button" data-filter="pending"
+          class="filter" aria-pressed="false">
+          Pendientes
+        </button>
+        <button type="button" data-filter="done"
+          class="filter" aria-pressed="false">
+          Comprados
+        </button>
+      </nav>
+
+      <ul id="product-list" class="product-list"></ul>
+
+      <p id="empty-message" class="empty-message">
+        Tu lista está vacía. ¡Añade el primer producto!
+      </p>
+
+      <button id="clear-done" class="clear-button" type="button">
+        Eliminar productos comprados
+      </button>
+    </section>
+
+    <footer class="footer">
+      <span class="status-dot"></span>
+      <span id="app-status">Modo de prueba · Datos locales</span>
+    </footer>
+  </main>
+</body>
+<section id="auth-section">
+
+  <h2>Acceso familiar</h2>
+
+  <form id="login-form">
+
+    <label for="login-email">
+      Email
+    </label>
+
+    <input
+      id="login-email"
+      type="email"
+      required
+    >
+
+    <label for="login-password">
+      Contraseña
+    </label>
+
+    <input
+      id="login-password"
+      type="password"
+      required
+    >
+
+    <button type="submit">
+      Entrar
+    </button>
+
+  </form>
+
+</section>
+</html>
